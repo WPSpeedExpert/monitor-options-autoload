@@ -1,10 +1,14 @@
 <?php
 /**
- * monitor-options-autoload.php
- * Plugin to monitor and log changes to wp_options autoload values
+ * Plugin Name: OctaHexa Options Autoload Monitor
+ * Plugin URI: https://octahexa.com
+ * Description: Monitor and diagnose wp_options autoload issues
  * Version: 1.0.0
+ * Author: Brian Chin
+ * Author URI: https://octahexa.com
+ * Text Domain: oh-options-autoload
+ * License: GPL-2.0+
  * 
- * @author Brian Chin
  * @package OctaHexa Utils
  */
 
@@ -74,12 +78,14 @@ function oh_get_caller_info() {
  * Add a diagnostic admin page
  */
 function oh_add_options_autoload_diagnostics() {
-    add_management_page(
-        'Options Autoload Diagnostic',
-        'Options Autoload',
-        'manage_options',
-        'oh-options-autoload',
-        'oh_options_autoload_diagnostic_page'
+    // Add to Tools menu
+    add_submenu_page(
+        'tools.php',          // Parent slug
+        'Options Autoload Diagnostic',  // Page title
+        'Options Autoload',   // Menu title
+        'manage_options',     // Capability
+        'oh-options-autoload', // Menu slug
+        'oh_options_autoload_diagnostic_page' // Function
     );
 }
 add_action('admin_menu', 'oh_add_options_autoload_diagnostics');
