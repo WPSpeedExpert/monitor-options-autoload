@@ -6,6 +6,7 @@
  * 
  * @author Brian Chin
  * @package OctaHexa Utils
+ * Usage: https://{sitename}/export-compare-autoload.php?key=compare-autoload
  */
 
 // Basic security check
